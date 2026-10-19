@@ -151,10 +151,10 @@ export const EventsSection: React.FC<Props> = ({ lang }) => {
 
           </div>
 
-          {/* Invitation Headline (Masked Float-Up) */}
-          <div className="mt-2 flex flex-col items-center gap-2 w-full">
-            <AnimatedTitle 
-              className="d-font text-center"
+          {/* Invitation Headline */}
+          <div className="mt-4 flex flex-col items-center gap-2 w-full text-center">
+            <h2 
+              className="d-font" 
               style={{ fontSize: lang === 'en' ? '42px' : '36px', lineHeight: '1.08', color: '#700B13', margin: 0 }}
             >
               {lang === 'en' ? (
@@ -162,9 +162,9 @@ export const EventsSection: React.FC<Props> = ({ lang }) => {
               ) : (
                 <>सस्नेह निमंत्रण,<br />सपरिवार पधारें</>
               )}
-            </AnimatedTitle>
+            </h2>
 
-            
+            <div style={{ width: '64px', height: '2px', background: '#B45309', opacity: 0.6, marginTop: '8px' }} />
           </div>
 
         </div>
