@@ -138,18 +138,7 @@ export const EventsSection: React.FC<Props> = ({ lang }) => {
               )}
             </h2>
 
-            <p 
-              className="b-font" 
-              style={{ margin: 0, fontSize: '16px', lineHeight: '1.6', maxWidth: '320px', color: '#5A3525' }}
-            >
-              {lang === 'en' ? (
-                <><strong>Every one of you</strong>, from the youngest to our elders, is a cherished part of our celebration.</>
-              ) : (
-                <>परिवार के प्रत्येक सदस्य, बच्चों से लेकर बड़ों तक, की उपस्थिति हमारे लिए अमूल्य है।</>
-              )}
-            </p>
-
-            <div style={{ width: '64px', height: '2px', background: '#B45309', marginTop: '6px' }} />
+            <div style={{ width: '64px', height: '2px', background: '#B45309', marginTop: '8px' }} />
           </div>
 
         </div>
