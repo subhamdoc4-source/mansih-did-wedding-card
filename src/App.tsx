@@ -1,4 +1,4 @@
-import { useRef, useState } from 'react';
+import { useState } from 'react';
 import { HeroGate } from './components/HeroGate';
 import { DramaticTimer } from './components/DramaticTimer';
 import { EventsSection } from './components/EventsSection';
@@ -7,26 +7,11 @@ import { LanguageToggle } from './components/LanguageToggle';
 export function App() {
   const [lang, setLang] = useState<'en' | 'hi'>('en');
   const [isUnlocked, setIsUnlocked] = useState(false);
-  const audioRef = useRef<HTMLAudioElement | null>(null);
-
-  const handleVideoStart = () => {
-    if (audioRef.current) {
-      audioRef.current.play().catch(() => {});
-    }
-  };
 
   return (
     <div className={`min-h-screen bg-[#FDF6ED] text-[#FAF7EE] flex flex-col items-center selection:bg-gold-light selection:text-emerald-deep font-body overflow-x-hidden ${
       !isUnlocked ? 'h-[100dvh] overflow-hidden bg-black' : ''
     }`}>
-      
-      {/* Background audio without visible button */}
-      <audio
-        ref={audioRef}
-        src="/assets/wedding-music.mp3"
-        loop
-        preload="auto"
-      />
 
       {/* Single Flag Circle at top right: Indian flag when English, British flag when Hindi */}
       <LanguageToggle
@@ -38,7 +23,6 @@ export function App() {
       {/* 1. Hero Section (Strict 100dvh - Only thing visible initially) */}
       <div className="w-full h-[100dvh] bg-black flex justify-center items-center overflow-hidden">
         <HeroGate 
-          onVideoStart={handleVideoStart}
           onUnlocked={() => setIsUnlocked(true)}
           lang={lang}
         />

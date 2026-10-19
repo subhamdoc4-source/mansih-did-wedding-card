@@ -1,4 +1,4 @@
-import React, { useRef, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Sparkles } from 'lucide-react';
 
@@ -13,6 +13,13 @@ export const HeroGate: React.FC<Props> = ({ onVideoStart, onUnlocked, lang }) =>
   const [showText, setShowText] = useState(false);
   const videoRef = useRef<HTMLVideoElement | null>(null);
 
+  useEffect(() => {
+    if (videoRef.current) {
+      videoRef.current.muted = true;
+      videoRef.current.defaultMuted = true;
+    }
+  }, []);
+
   const handleStart = async () => {
     if (isPlaying) return;
     setIsPlaying(true);
@@ -23,6 +30,7 @@ export const HeroGate: React.FC<Props> = ({ onVideoStart, onUnlocked, lang }) =>
 
     if (videoRef.current) {
       try {
+        videoRef.current.muted = true;
         videoRef.current.currentTime = 0;
         await videoRef.current.play();
       } catch (err) {
