@@ -74,15 +74,15 @@ export const EventsSection: React.FC<Props> = ({ lang }) => {
               </h3>
               <p 
                 className="b-font" 
-                style={{ fontSize: '14px', color: '#8A4B2B', margin: '4px 0 0', fontWeight: 600 }}
+                style={{ fontSize: '16px', color: '#8A4B2B', margin: '4px 0 0', fontWeight: 600 }}
               >
                 {lang === 'en' 
                   ? 'Daughter of Smt. Manju Devi & Shri Ram Tirth Yadav' 
                   : 'सुपुत्री: श्रीमती मंजू देवी एवं श्री राम तीर्थ यादव'}
               </p>
               <span 
-                className="b-font text-[11px] mt-1" 
-                style={{ color: '#8A4B2B', opacity: 0.8 }}
+                className="b-font text-[13px] mt-1" 
+                style={{ color: '#8A4B2B', opacity: 0.9 }}
               >
                 {lang === 'en' 
                   ? '(Granddaughter of Shri Udayraj Yadav · Ramganj, Pratapgarh)' 
@@ -107,15 +107,15 @@ export const EventsSection: React.FC<Props> = ({ lang }) => {
               </h3>
               <p 
                 className="b-font" 
-                style={{ fontSize: '14px', color: '#8A4B2B', margin: '4px 0 0', fontWeight: 600 }}
+                style={{ fontSize: '16px', color: '#8A4B2B', margin: '4px 0 0', fontWeight: 600 }}
               >
                 {lang === 'en' 
                   ? 'Son of Smt. Padmavati & Shri Naresh Chandra Yadav' 
                   : 'सुपुत्र: श्रीमती पदमावती एवं श्री नरेश चन्द्र यादव'}
               </p>
               <span 
-                className="b-font text-[11px] mt-1" 
-                style={{ color: '#8A4B2B', opacity: 0.8 }}
+                className="b-font text-[13px] mt-1" 
+                style={{ color: '#8A4B2B', opacity: 0.9 }}
               >
                 {lang === 'en' 
                   ? '(Karmanghat, Hyderabad, Telangana)' 
@@ -140,7 +140,7 @@ export const EventsSection: React.FC<Props> = ({ lang }) => {
 
             <p 
               className="b-font" 
-              style={{ margin: 0, fontSize: '15px', lineHeight: '1.6', maxWidth: '320px', color: '#5A3525' }}
+              style={{ margin: 0, fontSize: '16px', lineHeight: '1.6', maxWidth: '320px', color: '#5A3525' }}
             >
               {lang === 'en' ? (
                 <><strong>Every one of you</strong>, from the youngest to our elders, is a cherished part of our celebration.</>
@@ -175,7 +175,7 @@ export const EventsSection: React.FC<Props> = ({ lang }) => {
           
           <span 
             className="b-font" 
-            style={{ fontSize: '12px', letterSpacing: '.28em', textTransform: 'uppercase', color: '#7C2D12', fontWeight: 600 }}
+            style={{ fontSize: '13px', letterSpacing: '.28em', textTransform: 'uppercase', color: '#7C2D12', fontWeight: 600 }}
           >
             {lang === 'en' ? 'Event One' : 'प्रथम कार्यक्रम'}
           </span>
@@ -215,7 +215,7 @@ export const EventsSection: React.FC<Props> = ({ lang }) => {
             <strong className="d-font" style={{ fontSize: '26px', color: '#4A1D08', textShadow: '0 1px 2px rgba(255,255,255,0.4)' }}>
               {lang === 'en' ? 'Tel Poojan' : 'तेल पूजन'}
             </strong>
-            <span className="b-font" style={{ fontSize: '15px', color: '#3A1400', fontWeight: 500 }}>
+            <span className="b-font" style={{ fontSize: '16px', color: '#3A1400', fontWeight: 500 }}>
               {lang === 'en' ? '23 November 2026 · Monday · 10:00 AM' : '23 नवम्बर 2026 · दिन सोमवार · प्रातः 10:00 बजे'}
             </span>
 
@@ -224,16 +224,16 @@ export const EventsSection: React.FC<Props> = ({ lang }) => {
             <strong className="d-font" style={{ fontSize: '26px', color: '#FFF8E7', textShadow: '0 2px 8px rgba(0,0,0,0.45)' }}>
               {lang === 'en' ? 'Haldi Ceremony' : 'हल्दी उत्सव'}
             </strong>
-            <span className="b-font" style={{ fontSize: '15px', color: '#FFFBEB', fontWeight: 500, textShadow: '0 1px 4px rgba(0,0,0,0.35)' }}>
+            <span className="b-font" style={{ fontSize: '16px', color: '#FFFBEB', fontWeight: 500, textShadow: '0 1px 4px rgba(0,0,0,0.35)' }}>
               {lang === 'en' ? '24 November 2026 · Tuesday · 01:00 PM' : '24 नवम्बर 2026 · दिन मंगलवार · दोपहर 01:00 बजे'}
             </span>
-            <span className="b-font" style={{ fontSize: '15px', color: '#FFFBEB', fontWeight: 500, textShadow: '0 1px 4px rgba(0,0,0,0.35)' }}>
+            <span className="b-font" style={{ fontSize: '16px', color: '#FFFBEB', fontWeight: 500, textShadow: '0 1px 4px rgba(0,0,0,0.35)' }}>
               {lang === 'en' ? 'Satyanarayan Marriage Lawn, Ramganj, Pratapgarh' : 'सत्यनरायन मैरिज लॉन, रामगंज, प्रतापगढ़'}
             </span>
 
             <div style={{ width: '56px', height: '1px', background: '#FFFBEB', opacity: 0.45, margin: '8px 0' }} />
 
-            <span className="b-font" style={{ fontSize: '14px', color: '#FDE68A', fontWeight: 600, textShadow: '0 1px 4px rgba(0,0,0,0.4)' }}>
+            <span className="b-font" style={{ fontSize: '15px', color: '#FDE68A', fontWeight: 600, textShadow: '0 1px 4px rgba(0,0,0,0.4)' }}>
               {lang === 'en' ? 'Dress code: Festive Yellow & Cream' : 'पहनावा: पारंपरिक पीला एवं क्रीम'}
             </span>
           </div>
@@ -261,7 +261,7 @@ export const EventsSection: React.FC<Props> = ({ lang }) => {
           
           <span 
             className="b-font" 
-            style={{ fontSize: '12px', letterSpacing: '.28em', textTransform: 'uppercase', color: '#D8F3DC', fontWeight: 500 }}
+            style={{ fontSize: '13px', letterSpacing: '.28em', textTransform: 'uppercase', color: '#D8F3DC', fontWeight: 500 }}
           >
             {lang === 'en' ? 'Event Two' : 'द्वितीय कार्यक्रम'}
           </span>
@@ -301,7 +301,7 @@ export const EventsSection: React.FC<Props> = ({ lang }) => {
             <strong className="d-font" style={{ fontSize: '24px', color: '#F3C68F' }}>
               {lang === 'en' ? 'Mehendi Ceremony' : 'मेहंदी उत्सव'}
             </strong>
-            <span className="b-font" style={{ fontSize: '15px', color: '#D8F3DC' }}>
+            <span className="b-font" style={{ fontSize: '16px', color: '#D8F3DC' }}>
               {lang === 'en' ? '24 November 2026 · Tuesday · 04:00 PM' : '24 नवम्बर 2026 · दिन मंगलवार · सायं 04:00 बजे'}
             </span>
 
@@ -310,16 +310,16 @@ export const EventsSection: React.FC<Props> = ({ lang }) => {
             <strong className="d-font" style={{ fontSize: '24px', color: '#F3C68F' }}>
               {lang === 'en' ? 'Sangeet & DJ Night' : 'संगीत एवं डी.जे. उत्सव'}
             </strong>
-            <span className="b-font" style={{ fontSize: '15px', color: '#D8F3DC' }}>
+            <span className="b-font" style={{ fontSize: '16px', color: '#D8F3DC' }}>
               {lang === 'en' ? '24 November 2026 · Tuesday · 07:00 PM' : '24 नवम्बर 2026 · दिन मंगलवार · सायं 07:00 बजे'}
             </span>
-            <span className="b-font" style={{ fontSize: '15px', color: '#D8F3DC' }}>
+            <span className="b-font" style={{ fontSize: '16px', color: '#D8F3DC' }}>
               {lang === 'en' ? 'Satyanarayan Marriage Lawn, Ramganj, Pratapgarh' : 'सत्यनरायन मैरिज लॉन, रामगंज, प्रतापगढ़'}
             </span>
 
             <div style={{ width: '56px', height: '1px', background: '#52B788', opacity: 0.4, margin: '8px 0' }} />
 
-            <span className="b-font" style={{ fontSize: '14px', color: '#52B788', fontWeight: 600 }}>
+            <span className="b-font" style={{ fontSize: '15px', color: '#52B788', fontWeight: 600 }}>
               {lang === 'en' ? 'Dress code: Greens & Gold' : 'पहनावा: हरा एवं सुनहरा'}
             </span>
           </div>
@@ -347,7 +347,7 @@ export const EventsSection: React.FC<Props> = ({ lang }) => {
           
           <span 
             className="b-font" 
-            style={{ fontSize: '12px', letterSpacing: '.28em', textTransform: 'uppercase', color: '#E5C158', fontWeight: 600 }}
+            style={{ fontSize: '13px', letterSpacing: '.28em', textTransform: 'uppercase', color: '#E5C158', fontWeight: 600 }}
           >
             {lang === 'en' ? 'The Main Event' : 'मुख्य विवाह'}
           </span>
@@ -396,19 +396,19 @@ export const EventsSection: React.FC<Props> = ({ lang }) => {
             <span className="b-font" style={{ fontSize: '16px', color: '#FFF3DC' }}>
               {lang === 'en' ? 'Seven Sacred Pheras: 11:00 PM' : 'पाणिग्रहण (फेरे): रात्रि 11:00 बजे (शुभ लग्न)'}
             </span>
-            <span className="b-font" style={{ fontSize: '15px', color: '#FFF3DC' }}>
+            <span className="b-font" style={{ fontSize: '16px', color: '#FFF3DC' }}>
               {lang === 'en' ? 'Dinner & Blessings to follow' : 'प्रीतिभोज एवं शुभाशीर्वाद'}
             </span>
 
             <div style={{ width: '56px', height: '1px', background: '#E5C158', opacity: 0.4, margin: '8px 0' }} />
 
-            <span className="b-font" style={{ fontSize: '15px', color: '#FFF3DC' }}>
+            <span className="b-font" style={{ fontSize: '16px', color: '#FFF3DC' }}>
               {lang === 'en' ? 'Satyanarayan Marriage Lawn, Ramganj, Pratapgarh' : 'सत्यनरायन मैरिज लॉन, रामगंज, जिला- प्रतापगढ़'}
             </span>
 
             <div style={{ width: '56px', height: '1px', background: '#E5C158', opacity: 0.4, margin: '8px 0' }} />
 
-            <span className="b-font" style={{ fontSize: '14px', color: '#E5C158', fontWeight: 600 }}>
+            <span className="b-font" style={{ fontSize: '15px', color: '#E5C158', fontWeight: 600 }}>
               {lang === 'en' ? 'Dress code: Royal Red, Maroon & Gold' : 'पहनावा: पारंपरिक लाल, मैरून एवं सुनहरा'}
             </span>
           </div>
@@ -435,7 +435,7 @@ export const EventsSection: React.FC<Props> = ({ lang }) => {
           
           <span 
             className="b-font" 
-            style={{ fontSize: '12px', letterSpacing: '.28em', textTransform: 'uppercase', color: '#C4B5FD', fontWeight: 500 }}
+            style={{ fontSize: '13px', letterSpacing: '.28em', textTransform: 'uppercase', color: '#C4B5FD', fontWeight: 500 }}
           >
             {lang === 'en' ? 'The Farewell' : 'विदाई बेला'}
           </span>
@@ -471,7 +471,7 @@ export const EventsSection: React.FC<Props> = ({ lang }) => {
           </div>
 
           {/* Direct Text */}
-          <span className="b-font" style={{ fontSize: '15px', color: '#F5F3FF', marginTop: '4px' }}>
+          <span className="b-font" style={{ fontSize: '16px', color: '#F5F3FF', marginTop: '4px' }}>
             {lang === 'en' ? 'Thursday, 26 November 2026 · 05:00 AM' : '26 नवम्बर 2026 · दिन गुरूवार · प्रातः 05:00 बजे'}
           </span>
 
@@ -480,15 +480,15 @@ export const EventsSection: React.FC<Props> = ({ lang }) => {
           <h3 className="d-font" style={{ fontSize: '28px', lineHeight: '1.2', color: '#E5C158', margin: 0 }}>
             {lang === 'en' ? 'Your entire family is invited' : 'आप सपरिवार सादर आमंत्रित हैं'}
           </h3>
-          <p className="b-font" style={{ margin: 0, fontSize: '14px', lineHeight: '1.6', maxWidth: '300px', color: '#DDD6FE' }}>
+          <p className="b-font" style={{ margin: 0, fontSize: '15px', lineHeight: '1.6', maxWidth: '320px', color: '#DDD6FE' }}>
             {lang === 'en' 
               ? 'Please join our celebrations and shower your heartfelt blessings upon us.' 
               : 'कृपया पधारकर वर-वधू को अपने स्नेहिल आशीर्वाद से अनुगृहीत करें।'}
           </p>
-          <span className="b-font" style={{ fontSize: '14px', letterSpacing: '.14em', textTransform: 'uppercase', color: '#E5C158', marginTop: '6px' }}>
+          <span className="b-font" style={{ fontSize: '15px', letterSpacing: '.14em', textTransform: 'uppercase', color: '#E5C158', marginTop: '6px' }}>
             {lang === 'en' ? 'With love, Ragani & Pranay' : 'स्नेही: रागनी एवं प्रणय'}
           </span>
-          <span className="b-font" style={{ fontSize: '12px', opacity: 0.8, color: '#DDD6FE' }}>
+          <span className="b-font" style={{ fontSize: '14px', opacity: 0.9, color: '#DDD6FE' }}>
             {lang === 'en' ? '— Shri Udayraj Yadav & Yadav Family' : '— श्री उदयराज यादव एवं समस्त यादव परिवार'}
           </span>
 

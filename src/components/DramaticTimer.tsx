@@ -146,7 +146,7 @@ export const DramaticTimer: React.FC<Props> = ({
 
             {/* Sub-label */}
             <span 
-              className="text-[10px] tracking-[0.14em] text-[#8C5E4A] font-medium uppercase mt-2"
+              className="text-xs tracking-[0.14em] text-[#8C5E4A] font-medium uppercase mt-2"
               style={{ fontFamily: lang === 'en' ? "'Jost', sans-serif" : "'Noto Serif Devanagari', serif" }}
             >
               {item.label}
