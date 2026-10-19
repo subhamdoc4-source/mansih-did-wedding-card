@@ -1,6 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Sparkles } from 'lucide-react';
 
 interface Props {
   onVideoStart?: () => void;
@@ -48,14 +47,12 @@ export const HeroGate: React.FC<Props> = ({ onVideoStart, onUnlocked, lang }) =>
   };
 
   const textContent = lang === 'en' ? {
-    celebration: 'Royal Wedding Celebration',
     bride: 'Ragani Yadav',
     connector: 'weds',
     groom: 'Pranay Yadav',
     date: '25 November 2026',
     sub: 'Wednesday · Pratapgarh, U.P.'
   } : {
-    celebration: 'मांगलिक परिणय उत्सव',
     bride: 'रागनी यादव',
     connector: 'संग',
     groom: 'प्रणय यादव',
@@ -129,23 +126,6 @@ export const HeroGate: React.FC<Props> = ({ onVideoStart, onUnlocked, lang }) =>
               }}
               className="flex flex-col items-center w-full max-w-sm px-2 text-center"
             >
-              {/* Auspicious Flourish */}
-              <motion.div
-                initial={{ opacity: 0, scale: 0.8 }}
-                animate={{ opacity: 1, scale: 1 }}
-                transition={{ delay: 0.2, duration: 1.0 }}
-                className="flex items-center gap-2 mb-4 text-gold-shimmer"
-              >
-                <Sparkles size={16} />
-                <span 
-                  className="text-xs xs:text-sm uppercase tracking-[0.28em] text-gold-light"
-                  style={{ fontFamily: bodyFont, fontWeight: 500 }}
-                >
-                  {textContent.celebration}
-                </span>
-                <Sparkles size={16} />
-              </motion.div>
-
               {/* Bride Name (1.5x Larger) */}
               <motion.h1 
                 initial={{ opacity: 0, y: 15 }}
