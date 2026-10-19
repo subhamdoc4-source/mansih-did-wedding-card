@@ -477,9 +477,6 @@ export const EventsSection: React.FC<Props> = ({ lang }) => {
           <span className="b-font" style={{ fontSize: '15px', letterSpacing: '.14em', textTransform: 'uppercase', color: '#E5C158', marginTop: '6px' }}>
             {lang === 'en' ? 'With love, Ragani & Pranay' : 'स्नेही: रागनी एवं प्रणय'}
           </span>
-          <span className="b-font" style={{ fontSize: '14px', opacity: 0.9, color: '#DDD6FE' }}>
-            {lang === 'en' ? '— Shri Udayraj Yadav & Yadav Family' : '— श्री उदयराज यादव एवं समस्त यादव परिवार'}
-          </span>
 
         </div>
       </section>
