@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { HeroGate } from './components/HeroGate';
 import { DramaticTimer } from './components/DramaticTimer';
 import { EventsSection } from './components/EventsSection';
@@ -7,6 +7,30 @@ import { LanguageToggle } from './components/LanguageToggle';
 export function App() {
   const [lang, setLang] = useState<'en' | 'hi'>('en');
   const [isUnlocked, setIsUnlocked] = useState(false);
+
+  // Prevent any scrolling whatsoever before the user unlocks the invitation
+  useEffect(() => {
+    if (!isUnlocked) {
+      document.documentElement.style.overflow = 'hidden';
+      document.documentElement.style.height = '100%';
+      document.body.style.overflow = 'hidden';
+      document.body.style.height = '100%';
+      document.body.style.touchAction = 'none';
+    } else {
+      document.documentElement.style.overflow = '';
+      document.documentElement.style.height = '';
+      document.body.style.overflow = '';
+      document.body.style.height = '';
+      document.body.style.touchAction = '';
+    }
+    return () => {
+      document.documentElement.style.overflow = '';
+      document.documentElement.style.height = '';
+      document.body.style.overflow = '';
+      document.body.style.height = '';
+      document.body.style.touchAction = '';
+    };
+  }, [isUnlocked]);
 
   return (
     <div className={`min-h-screen bg-[#FDF6ED] text-[#FAF7EE] flex flex-col items-center selection:bg-gold-light selection:text-emerald-deep font-body overflow-x-hidden ${
@@ -20,8 +44,8 @@ export function App() {
         onToggle={() => setLang(prev => (prev === 'en' ? 'hi' : 'en'))}
       />
 
-      {/* 1. Hero Section (Strict 100dvh - Only thing visible initially) */}
-      <div className="w-full h-[100dvh] bg-black flex justify-center items-center overflow-hidden">
+      {/* 1. Hero Section (Strictly fixed/contained before unlock so zero scroll or black line occurs) */}
+      <div className={`w-full ${!isUnlocked ? 'fixed inset-0 z-0 h-[100dvh]' : 'h-[100dvh]'} bg-black flex justify-center items-center overflow-hidden`}>
         <HeroGate 
           onUnlocked={() => setIsUnlocked(true)}
           lang={lang}
