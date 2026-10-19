@@ -126,12 +126,12 @@ export const HeroGate: React.FC<Props> = ({ onVideoStart, onUnlocked, lang }) =>
               }}
               className="flex flex-col items-center w-full max-w-sm px-2 text-center"
             >
-              {/* Bride Name (1.5x Larger) */}
+              {/* Bride Name (1.5x Larger with Royal Gold Sheen) */}
               <motion.h1 
                 initial={{ opacity: 0, y: 15 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.4, duration: 1.2 }}
-                className="font-bold tracking-wide text-white drop-shadow-[0_4px_22px_rgba(0,0,0,0.95)] leading-[1.08] text-center"
+                className="font-bold tracking-wide royal-gold-sheen drop-shadow-[0_4px_22px_rgba(0,0,0,0.95)] leading-[1.08] text-center"
                 style={{ 
                   fontFamily: titleFont,
                   fontSize: 'clamp(50px, 12vw, 70px)'
@@ -140,14 +140,19 @@ export const HeroGate: React.FC<Props> = ({ onVideoStart, onUnlocked, lang }) =>
                 {textContent.bride}
               </motion.h1>
 
-              {/* Connector: "weds" or "संग" (1.5x Larger) */}
+              {/* Connector: "weds" or "संग" (Expanding Divider) */}
               <motion.div
                 initial={{ opacity: 0, scale: 0.8 }}
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ delay: 0.7, duration: 1.0 }}
                 className="my-3 flex items-center justify-center gap-3 w-full"
               >
-                <div className="h-px w-16 bg-gradient-to-r from-transparent via-gold to-gold" />
+                <motion.div 
+                  initial={{ scaleX: 0, originX: 1 }}
+                  animate={{ scaleX: 1 }}
+                  transition={{ delay: 0.7, duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
+                  className="h-px w-16 bg-gradient-to-r from-transparent via-gold to-gold" 
+                />
                 <span 
                   className="text-gold-shimmer drop-shadow-lg"
                   style={{ 
@@ -159,15 +164,20 @@ export const HeroGate: React.FC<Props> = ({ onVideoStart, onUnlocked, lang }) =>
                 >
                   {textContent.connector}
                 </span>
-                <div className="h-px w-16 bg-gradient-to-l from-transparent via-gold to-gold" />
+                <motion.div 
+                  initial={{ scaleX: 0, originX: 0 }}
+                  animate={{ scaleX: 1 }}
+                  transition={{ delay: 0.7, duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
+                  className="h-px w-16 bg-gradient-to-l from-transparent via-gold to-gold" 
+                />
               </motion.div>
 
-              {/* Groom Name (1.5x Larger) */}
+              {/* Groom Name (1.5x Larger with Royal Gold Sheen) */}
               <motion.h1 
                 initial={{ opacity: 0, y: 15 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 1.0, duration: 1.2 }}
-                className="font-bold tracking-wide text-white drop-shadow-[0_4px_22px_rgba(0,0,0,0.95)] leading-[1.08] text-center"
+                className="font-bold tracking-wide royal-gold-sheen drop-shadow-[0_4px_22px_rgba(0,0,0,0.95)] leading-[1.08] text-center"
                 style={{ 
                   fontFamily: titleFont,
                   fontSize: 'clamp(50px, 12vw, 70px)'

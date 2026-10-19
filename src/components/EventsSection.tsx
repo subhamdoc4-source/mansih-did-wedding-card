@@ -1,4 +1,7 @@
-import React from 'react';
+import { motion, type Variants } from 'framer-motion';
+import { ParallaxArch } from './ParallaxArch';
+import { ExpandingDivider } from './ExpandingDivider';
+import { AnimatedTitle } from './AnimatedTitle';
 
 interface Props {
   lang: 'en' | 'hi';
@@ -7,6 +10,30 @@ interface Props {
 export const EventsSection: React.FC<Props> = ({ lang }) => {
   const titleFont = lang === 'en' ? "'Cormorant Garamond', serif" : "'Noto Serif Devanagari', serif";
   const bodyFont = lang === 'en' ? "'Jost', sans-serif" : "'Noto Serif Devanagari', serif";
+
+  const containerVariants: Variants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.12,
+        delayChildren: 0.08,
+      },
+    },
+  };
+
+  const itemVariants: Variants = {
+    hidden: { opacity: 0, y: 16 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 0.8,
+        ease: [0.16, 1, 0.3, 1],
+      },
+    },
+  };
+
 
   return (
     <div className="w-full max-w-[480px] mx-auto flex flex-col relative z-20 select-none overflow-hidden">
@@ -36,6 +63,9 @@ export const EventsSection: React.FC<Props> = ({ lang }) => {
           border: none !important;
           outline: none !important;
           margin: 0 !important;
+        }
+        .sec-clean:not(:first-of-type) {
+          margin-top: -3px !important;
         }
         .sec-content {
           position: relative;
@@ -90,12 +120,8 @@ export const EventsSection: React.FC<Props> = ({ lang }) => {
               </span>
             </div>
 
-            {/* Auspicious Wedding Divider */}
-            <div className="flex items-center justify-center gap-3 w-40 my-3 opacity-60">
-              <div className="h-px w-full bg-[#B45309]" />
-              <span className="text-[#B45309] text-xs select-none">♥</span>
-              <div className="h-px w-full bg-[#B45309]" />
-            </div>
+            {/* Auspicious Wedding Divider (Center-Out Expansion) */}
+            <ExpandingDivider color="#B45309" width="w-40" className="my-3" opacity={0.65} />
 
             {/* Groom & His Parents */}
             <div className="flex flex-col items-center">
@@ -125,10 +151,10 @@ export const EventsSection: React.FC<Props> = ({ lang }) => {
 
           </div>
 
-          {/* Invitation Headline */}
-          <div className="mt-2 flex flex-col items-center gap-2">
-            <h2 
-              className="d-font" 
+          {/* Invitation Headline (Masked Float-Up) */}
+          <div className="mt-2 flex flex-col items-center gap-2 w-full">
+            <AnimatedTitle 
+              className="d-font text-center"
               style={{ fontSize: lang === 'en' ? '42px' : '36px', lineHeight: '1.08', color: '#700B13', margin: 0 }}
             >
               {lang === 'en' ? (
@@ -136,9 +162,9 @@ export const EventsSection: React.FC<Props> = ({ lang }) => {
               ) : (
                 <>सस्नेह निमंत्रण,<br />सपरिवार पधारें</>
               )}
-            </h2>
+            </AnimatedTitle>
 
-            <div style={{ width: '64px', height: '2px', background: '#B45309', marginTop: '8px' }} />
+            
           </div>
 
         </div>
@@ -169,12 +195,12 @@ export const EventsSection: React.FC<Props> = ({ lang }) => {
             {lang === 'en' ? 'Event One' : 'प्रथम कार्यक्रम'}
           </span>
 
-          <h2 
-            className="d-font" 
+          <AnimatedTitle 
+            className="d-font text-center" 
             style={{ fontSize: lang === 'en' ? '50px' : '40px', lineHeight: '1.05', color: '#7C2D12', margin: 0 }}
           >
             {lang === 'en' ? 'Haldi & Tel Poojan' : 'हल्दी उत्सव एवं तेल पूजन'}
-          </h2>
+          </AnimatedTitle>
 
           <p 
             className="d-italic" 
@@ -183,49 +209,50 @@ export const EventsSection: React.FC<Props> = ({ lang }) => {
             {lang === 'en' ? 'Sunlit, playful, and full of laughter' : 'हल्दी चन्दन का उबटन लगें, दुल्हन का रूप सुनहरा सजें'}
           </p>
 
-          {/* Faded Arched Background Photograph */}
-          <div 
-            className="w-full h-[230px] relative my-2 overflow-hidden flex items-end justify-center"
-            style={{
-              borderRadius: '160px 160px 20px 20px',
-              WebkitMaskImage: 'linear-gradient(to bottom, rgba(0,0,0,1) 35%, rgba(0,0,0,0) 100%)',
-              maskImage: 'linear-gradient(to bottom, rgba(0,0,0,1) 35%, rgba(0,0,0,0) 100%)',
-            }}
+          {/* Faded Arched Background Photograph with Optical Depth Parallax */}
+          <ParallaxArch 
+            src="/assets/event-haldi.jpg" 
+            alt="Haldi Ritual" 
+            height={230} 
+          />
+
+          {/* Direct Text (Sequential Ceremonial Cascade) */}
+          <motion.div 
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.25 }}
+            variants={containerVariants}
+            className="flex flex-col items-center gap-2 text-center mt-2 w-full max-w-[340px]"
           >
-            <img 
-              src="/assets/event-haldi.jpg" 
-              alt="Haldi Ritual" 
-              className="w-full h-full object-cover object-center transform scale-105"
-            />
-          </div>
+            <motion.div variants={itemVariants} className="flex flex-col items-center">
+              <strong className="d-font" style={{ fontSize: '26px', color: '#4A1D08', textShadow: '0 1px 2px rgba(255,255,255,0.4)' }}>
+                {lang === 'en' ? 'Tel Poojan' : 'तेल पूजन'}
+              </strong>
+              <span className="b-font" style={{ fontSize: '16px', color: '#3A1400', fontWeight: 500 }}>
+                {lang === 'en' ? '23 November 2026 · Monday · 10:00 AM' : '23 नवम्बर 2026 · दिन सोमवार · प्रातः 10:00 बजे'}
+              </span>
+            </motion.div>
 
-          {/* Direct Text (NO BOX - High Contrast Typography) */}
-          <div className="flex flex-col items-center gap-2 text-center mt-2 w-full max-w-[340px]">
-            <strong className="d-font" style={{ fontSize: '26px', color: '#4A1D08', textShadow: '0 1px 2px rgba(255,255,255,0.4)' }}>
-              {lang === 'en' ? 'Tel Poojan' : 'तेल पूजन'}
-            </strong>
-            <span className="b-font" style={{ fontSize: '16px', color: '#3A1400', fontWeight: 500 }}>
-              {lang === 'en' ? '23 November 2026 · Monday · 10:00 AM' : '23 नवम्बर 2026 · दिन सोमवार · प्रातः 10:00 बजे'}
-            </span>
+            <div className="my-1" />
 
-            <div style={{ width: '56px', height: '1px', background: '#4A1D08', opacity: 0.45, margin: '8px 0' }} />
+            <motion.div variants={itemVariants} className="flex flex-col items-center">
+              <strong className="d-font" style={{ fontSize: '26px', color: '#FFF8E7', textShadow: '0 2px 8px rgba(0,0,0,0.45)' }}>
+                {lang === 'en' ? 'Haldi Ceremony' : 'हल्दी उत्सव'}
+              </strong>
+              <span className="b-font" style={{ fontSize: '16px', color: '#FFFBEB', fontWeight: 500, textShadow: '0 1px 4px rgba(0,0,0,0.35)' }}>
+                {lang === 'en' ? '24 November 2026 · Tuesday · 01:00 PM' : '24 नवम्बर 2026 · दिन मंगलवार · दोपहर 01:00 बजे'}
+              </span>
+              <span className="b-font mt-1" style={{ fontSize: '16px', color: '#FFFBEB', fontWeight: 500, textShadow: '0 1px 4px rgba(0,0,0,0.35)' }}>
+                {lang === 'en' ? 'Satyanarayan Marriage Lawn, Ramganj, Pratapgarh' : 'सत्यनरायन मैरिज लॉन, रामगंज, प्रतापगढ़'}
+              </span>
+            </motion.div>
 
-            <strong className="d-font" style={{ fontSize: '26px', color: '#FFF8E7', textShadow: '0 2px 8px rgba(0,0,0,0.45)' }}>
-              {lang === 'en' ? 'Haldi Ceremony' : 'हल्दी उत्सव'}
-            </strong>
-            <span className="b-font" style={{ fontSize: '16px', color: '#FFFBEB', fontWeight: 500, textShadow: '0 1px 4px rgba(0,0,0,0.35)' }}>
-              {lang === 'en' ? '24 November 2026 · Tuesday · 01:00 PM' : '24 नवम्बर 2026 · दिन मंगलवार · दोपहर 01:00 बजे'}
-            </span>
-            <span className="b-font" style={{ fontSize: '16px', color: '#FFFBEB', fontWeight: 500, textShadow: '0 1px 4px rgba(0,0,0,0.35)' }}>
-              {lang === 'en' ? 'Satyanarayan Marriage Lawn, Ramganj, Pratapgarh' : 'सत्यनरायन मैरिज लॉन, रामगंज, प्रतापगढ़'}
-            </span>
+            <div className="my-1" />
 
-            <div style={{ width: '56px', height: '1px', background: '#FFFBEB', opacity: 0.45, margin: '8px 0' }} />
-
-            <span className="b-font" style={{ fontSize: '15px', color: '#FDE68A', fontWeight: 600, textShadow: '0 1px 4px rgba(0,0,0,0.4)' }}>
+            <motion.span variants={itemVariants} className="b-font" style={{ fontSize: '15px', color: '#FDE68A', fontWeight: 600, textShadow: '0 1px 4px rgba(0,0,0,0.4)' }}>
               {lang === 'en' ? 'Dress code: Festive Yellow & Cream' : 'पहनावा: पारंपरिक पीला एवं क्रीम'}
-            </span>
-          </div>
+            </motion.span>
+          </motion.div>
 
         </div>
       </section>
@@ -255,12 +282,12 @@ export const EventsSection: React.FC<Props> = ({ lang }) => {
             {lang === 'en' ? 'Event Two' : 'द्वितीय कार्यक्रम'}
           </span>
 
-          <h2 
-            className="d-font" 
+          <AnimatedTitle 
+            className="d-font text-center" 
             style={{ fontSize: lang === 'en' ? '50px' : '40px', lineHeight: '1.05', color: '#F3C68F', margin: 0 }}
           >
             {lang === 'en' ? 'Mehendi & Sangeet' : 'मेहंदी एवं संगीत उत्सव'}
-          </h2>
+          </AnimatedTitle>
 
           <p 
             className="d-italic" 
@@ -269,49 +296,50 @@ export const EventsSection: React.FC<Props> = ({ lang }) => {
             {lang === 'en' ? 'Henna, dholak and dancing till late' : 'ढोल मंजीरा हुआ पुराना अब है डी.जी. का जमाना'}
           </p>
 
-          {/* Faded Arched Background Photograph */}
-          <div 
-            className="w-full h-[220px] relative my-2 overflow-hidden flex items-end justify-center"
-            style={{
-              borderRadius: '160px 160px 20px 20px',
-              WebkitMaskImage: 'linear-gradient(to bottom, rgba(0,0,0,1) 35%, rgba(0,0,0,0) 100%)',
-              maskImage: 'linear-gradient(to bottom, rgba(0,0,0,1) 35%, rgba(0,0,0,0) 100%)',
-            }}
+          {/* Faded Arched Background Photograph with Optical Depth Parallax */}
+          <ParallaxArch 
+            src="/assets/event-mehendi.jpg" 
+            alt="Mehendi & Sangeet" 
+            height={220} 
+          />
+
+          {/* Direct Text (Sequential Ceremonial Cascade) */}
+          <motion.div 
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.25 }}
+            variants={containerVariants}
+            className="flex flex-col items-center gap-2 text-center mt-2 w-full max-w-[340px]"
           >
-            <img 
-              src="/assets/event-mehendi.jpg" 
-              alt="Mehendi & Sangeet" 
-              className="w-full h-full object-cover object-center transform scale-105"
-            />
-          </div>
+            <motion.div variants={itemVariants} className="flex flex-col items-center">
+              <strong className="d-font" style={{ fontSize: '24px', color: '#F3C68F' }}>
+                {lang === 'en' ? 'Mehendi Ceremony' : 'मेहंदी उत्सव'}
+              </strong>
+              <span className="b-font" style={{ fontSize: '16px', color: '#D8F3DC' }}>
+                {lang === 'en' ? '24 November 2026 · Tuesday · 04:00 PM' : '24 नवम्बर 2026 · दिन मंगलवार · सायं 04:00 बजे'}
+              </span>
+            </motion.div>
 
-          {/* Direct Text (NO BOX, NO FLIP BUTTON) */}
-          <div className="flex flex-col items-center gap-2 text-center mt-2 w-full max-w-[340px]">
-            <strong className="d-font" style={{ fontSize: '24px', color: '#F3C68F' }}>
-              {lang === 'en' ? 'Mehendi Ceremony' : 'मेहंदी उत्सव'}
-            </strong>
-            <span className="b-font" style={{ fontSize: '16px', color: '#D8F3DC' }}>
-              {lang === 'en' ? '24 November 2026 · Tuesday · 04:00 PM' : '24 नवम्बर 2026 · दिन मंगलवार · सायं 04:00 बजे'}
-            </span>
+            <div className="my-1" />
 
-            <div style={{ width: '56px', height: '1px', background: '#52B788', opacity: 0.4, margin: '8px 0' }} />
+            <motion.div variants={itemVariants} className="flex flex-col items-center">
+              <strong className="d-font" style={{ fontSize: '24px', color: '#F3C68F' }}>
+                {lang === 'en' ? 'Sangeet & DJ Night' : 'संगीत एवं डी.जे. उत्सव'}
+              </strong>
+              <span className="b-font" style={{ fontSize: '16px', color: '#D8F3DC' }}>
+                {lang === 'en' ? '24 November 2026 · Tuesday · 07:00 PM' : '24 नवम्बर 2026 · दिन मंगलवार · सायं 07:00 बजे'}
+              </span>
+              <span className="b-font mt-1" style={{ fontSize: '16px', color: '#D8F3DC' }}>
+                {lang === 'en' ? 'Satyanarayan Marriage Lawn, Ramganj, Pratapgarh' : 'सत्यनरायन मैरिज लॉन, रामगंज, प्रतापगढ़'}
+              </span>
+            </motion.div>
 
-            <strong className="d-font" style={{ fontSize: '24px', color: '#F3C68F' }}>
-              {lang === 'en' ? 'Sangeet & DJ Night' : 'संगीत एवं डी.जे. उत्सव'}
-            </strong>
-            <span className="b-font" style={{ fontSize: '16px', color: '#D8F3DC' }}>
-              {lang === 'en' ? '24 November 2026 · Tuesday · 07:00 PM' : '24 नवम्बर 2026 · दिन मंगलवार · सायं 07:00 बजे'}
-            </span>
-            <span className="b-font" style={{ fontSize: '16px', color: '#D8F3DC' }}>
-              {lang === 'en' ? 'Satyanarayan Marriage Lawn, Ramganj, Pratapgarh' : 'सत्यनरायन मैरिज लॉन, रामगंज, प्रतापगढ़'}
-            </span>
+            <div className="my-1" />
 
-            <div style={{ width: '56px', height: '1px', background: '#52B788', opacity: 0.4, margin: '8px 0' }} />
-
-            <span className="b-font" style={{ fontSize: '15px', color: '#52B788', fontWeight: 600 }}>
+            <motion.span variants={itemVariants} className="b-font" style={{ fontSize: '15px', color: '#52B788', fontWeight: 600 }}>
               {lang === 'en' ? 'Dress code: Greens & Gold' : 'पहनावा: हरा एवं सुनहरा'}
-            </span>
-          </div>
+            </motion.span>
+          </motion.div>
 
         </div>
       </section>
@@ -341,12 +369,12 @@ export const EventsSection: React.FC<Props> = ({ lang }) => {
             {lang === 'en' ? 'The Main Event' : 'मुख्य विवाह'}
           </span>
 
-          <h2 
-            className="d-font" 
+          <AnimatedTitle 
+            className="d-font text-center" 
             style={{ fontSize: lang === 'en' ? '54px' : '44px', lineHeight: '1.05', color: '#E5C158', margin: 0 }}
           >
             {lang === 'en' ? 'Shubh Vivah' : 'शुभ विवाह एवं पाणिग्रहण'}
-          </h2>
+          </AnimatedTitle>
 
           <p 
             className="d-italic" 
@@ -355,52 +383,49 @@ export const EventsSection: React.FC<Props> = ({ lang }) => {
             {lang === 'en' ? 'Seven sacred vows, one beautiful beginning' : 'शुभ घड़ी आयेगी बारात, करेंगे स्वागत हम सब करेंगे साथ'}
           </p>
 
-          {/* Faded Arched Background Photograph */}
-          <div 
-            className="w-full h-[230px] relative my-2 overflow-hidden flex items-end justify-center"
-            style={{
-              borderRadius: '160px 160px 20px 20px',
-              WebkitMaskImage: 'linear-gradient(to bottom, rgba(0,0,0,1) 35%, rgba(0,0,0,0) 100%)',
-              maskImage: 'linear-gradient(to bottom, rgba(0,0,0,1) 35%, rgba(0,0,0,0) 100%)',
-            }}
+          {/* Faded Arched Background Photograph with Optical Depth Parallax */}
+          <ParallaxArch 
+            src="/assets/event-vivah.jpg" 
+            alt="Sacred Vivah" 
+            height={230} 
+          />
+
+          {/* Direct Text (Sacred Ceremonial Cascade) */}
+          <motion.div 
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.22 }}
+            variants={containerVariants}
+            className="flex flex-col items-center gap-2 text-center mt-2 w-full max-w-[340px]"
           >
-            <img 
-              src="/assets/event-vivah.jpg" 
-              alt="Sacred Vivah" 
-              className="w-full h-full object-cover object-center transform scale-105"
-            />
-          </div>
-
-          {/* Direct Text (NO BOX, NO FLIP BUTTON) */}
-          <div className="flex flex-col items-center gap-2 text-center mt-2 w-full max-w-[340px]">
-            <strong className="d-font" style={{ fontSize: '36px', color: '#E5C158', lineHeight: 1.1 }}>
+            <motion.strong variants={itemVariants} className="d-font" style={{ fontSize: '36px', color: '#E5C158', lineHeight: 1.1 }}>
               {lang === 'en' ? '25 November 2026' : '25 नवम्बर 2026'}
-            </strong>
-            <span className="b-font" style={{ fontSize: '16px', color: '#FFF3DC' }}>
+            </motion.strong>
+            <motion.span variants={itemVariants} className="b-font" style={{ fontSize: '16px', color: '#FFF3DC' }}>
               {lang === 'en' ? 'Wednesday · Baraat Swagat: 07:00 PM' : 'दिन बुधवार · शुभ बारात आगमन: सायं 07:00 बजे'}
-            </span>
-            <span className="b-font" style={{ fontSize: '16px', color: '#FFF3DC' }}>
+            </motion.span>
+            <motion.span variants={itemVariants} className="b-font" style={{ fontSize: '16px', color: '#FFF3DC' }}>
               {lang === 'en' ? 'Varmala Ceremony: 08:30 PM' : 'जयमाला रस्म: रात्रि 08:30 बजे'}
-            </span>
-            <span className="b-font" style={{ fontSize: '16px', color: '#FFF3DC' }}>
+            </motion.span>
+            <motion.span variants={itemVariants} className="b-font" style={{ fontSize: '16px', color: '#FFF3DC' }}>
               {lang === 'en' ? 'Seven Sacred Pheras: 11:00 PM' : 'पाणिग्रहण (फेरे): रात्रि 11:00 बजे (शुभ लग्न)'}
-            </span>
-            <span className="b-font" style={{ fontSize: '16px', color: '#FFF3DC' }}>
+            </motion.span>
+            <motion.span variants={itemVariants} className="b-font" style={{ fontSize: '16px', color: '#FFF3DC' }}>
               {lang === 'en' ? 'Dinner & Blessings to follow' : 'प्रीतिभोज एवं शुभाशीर्वाद'}
-            </span>
+            </motion.span>
 
-            <div style={{ width: '56px', height: '1px', background: '#E5C158', opacity: 0.4, margin: '8px 0' }} />
+            <div className="my-1" />
 
-            <span className="b-font" style={{ fontSize: '16px', color: '#FFF3DC' }}>
+            <motion.span variants={itemVariants} className="b-font" style={{ fontSize: '16px', color: '#FFF3DC' }}>
               {lang === 'en' ? 'Satyanarayan Marriage Lawn, Ramganj, Pratapgarh' : 'सत्यनरायन मैरिज लॉन, रामगंज, जिला- प्रतापगढ़'}
-            </span>
+            </motion.span>
 
-            <div style={{ width: '56px', height: '1px', background: '#E5C158', opacity: 0.4, margin: '8px 0' }} />
+            <div className="my-1" />
 
-            <span className="b-font" style={{ fontSize: '15px', color: '#E5C158', fontWeight: 600 }}>
+            <motion.span variants={itemVariants} className="b-font" style={{ fontSize: '15px', color: '#E5C158', fontWeight: 600 }}>
               {lang === 'en' ? 'Dress code: Royal Red, Maroon & Gold' : 'पहनावा: पारंपरिक लाल, मैरून एवं सुनहरा'}
-            </span>
-          </div>
+            </motion.span>
+          </motion.div>
 
         </div>
       </section>
@@ -429,12 +454,12 @@ export const EventsSection: React.FC<Props> = ({ lang }) => {
             {lang === 'en' ? 'The Farewell' : 'विदाई बेला'}
           </span>
 
-          <h2 
-            className="d-font" 
+          <AnimatedTitle 
+            className="d-font text-center" 
             style={{ fontSize: lang === 'en' ? '50px' : '40px', lineHeight: '1.05', color: '#DDD6FE', margin: 0 }}
           >
             {lang === 'en' ? 'Bheegi Palke' : 'भीगी पलकें (विदाई)'}
-          </h2>
+          </AnimatedTitle>
 
           <p 
             className="d-italic" 
@@ -443,28 +468,19 @@ export const EventsSection: React.FC<Props> = ({ lang }) => {
             {lang === 'en' ? 'Heartfelt farewell, lifelong blessings, and new beginnings' : 'लगी असुवन की घड़ी, लो आगयी विदाई की घड़ी…'}
           </p>
 
-          {/* Faded Arched Background Photograph */}
-          <div 
-            className="w-full h-[210px] relative my-2 overflow-hidden flex items-end justify-center"
-            style={{
-              borderRadius: '160px 160px 20px 20px',
-              WebkitMaskImage: 'linear-gradient(to bottom, rgba(0,0,0,1) 35%, rgba(0,0,0,0) 100%)',
-              maskImage: 'linear-gradient(to bottom, rgba(0,0,0,1) 35%, rgba(0,0,0,0) 100%)',
-            }}
-          >
-            <img 
-              src="/assets/event-vidaai.jpg" 
-              alt="Vidaai Doli" 
-              className="w-full h-full object-cover object-center transform scale-105"
-            />
-          </div>
+          {/* Faded Arched Background Photograph with Optical Depth Parallax */}
+          <ParallaxArch 
+            src="/assets/event-vidaai.jpg" 
+            alt="Vidaai Doli" 
+            height={210} 
+          />
 
           {/* Direct Text */}
           <span className="b-font" style={{ fontSize: '16px', color: '#F5F3FF', marginTop: '4px' }}>
             {lang === 'en' ? 'Thursday, 26 November 2026 · 05:00 AM' : '26 नवम्बर 2026 · दिन गुरूवार · प्रातः 05:00 बजे'}
           </span>
 
-          <div style={{ width: '64px', height: '1px', background: '#DDD6FE', margin: '8px 0', opacity: 0.5 }} />
+          <div className="my-1" />
 
           <h3 className="d-font" style={{ fontSize: '28px', lineHeight: '1.2', color: '#E5C158', margin: 0 }}>
             {lang === 'en' ? 'Your entire family is invited' : 'आप सपरिवार सादर आमंत्रित हैं'}

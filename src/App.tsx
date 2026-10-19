@@ -1,8 +1,10 @@
 import { useEffect, useState } from 'react';
+import Lenis from 'lenis';
 import { HeroGate } from './components/HeroGate';
 import { DramaticTimer } from './components/DramaticTimer';
 import { EventsSection } from './components/EventsSection';
 import { LanguageToggle } from './components/LanguageToggle';
+import { AmbientAtmosphere } from './components/AmbientAtmosphere';
 
 export function App() {
   const [lang, setLang] = useState<'en' | 'hi'>('en');
@@ -32,6 +34,32 @@ export function App() {
     };
   }, [isUnlocked]);
 
+  // Liquid momentum scrolling (Lenis) once the invitation is unlocked
+  useEffect(() => {
+    if (!isUnlocked) return;
+
+    const lenis = new Lenis({
+      duration: 1.15,
+      easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+      orientation: 'vertical',
+      gestureOrientation: 'vertical',
+      smoothWheel: true,
+      touchMultiplier: 1.35,
+    });
+
+    let rafId: number;
+    function raf(time: number) {
+      lenis.raf(time);
+      rafId = requestAnimationFrame(raf);
+    }
+    rafId = requestAnimationFrame(raf);
+
+    return () => {
+      cancelAnimationFrame(rafId);
+      lenis.destroy();
+    };
+  }, [isUnlocked]);
+
   return (
     <div className={`min-h-screen bg-[#FDF6ED] text-[#FAF7EE] flex flex-col items-center selection:bg-gold-light selection:text-emerald-deep font-body overflow-x-hidden ${
       !isUnlocked ? 'h-[100dvh] overflow-hidden bg-black' : ''
@@ -54,7 +82,10 @@ export function App() {
 
       {/* Subsequent sections ONLY rendered/visible after user has tapped & unlocked */}
       {isUnlocked && (
-        <div className="w-full flex flex-col items-center bg-[#FDF6ED]">
+        <div className="w-full flex flex-col items-center bg-[#FDF6ED] relative">
+          {/* Subtle Ambient Petals & Gold Dust floating in background */}
+          <AmbientAtmosphere />
+
           {/* 2. Dramatic Countdown Timer */}
           <div className="w-full flex justify-center bg-[#FDF6ED]">
             <DramaticTimer 
@@ -64,7 +95,7 @@ export function App() {
           </div>
 
           {/* 3. Events Section with Seamless Transitions, Parents Names & Direct Text */}
-          <div className="w-full flex justify-center bg-[#FDF6ED]">
+          <div className="w-full flex justify-center bg-[#0B0813]">
             <EventsSection lang={lang} />
           </div>
         </div>

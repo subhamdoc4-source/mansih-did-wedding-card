@@ -1,3 +1,4 @@
+import { ExpandingDivider } from './ExpandingDivider';
 import React, { useState, useEffect } from 'react';
 import { WEDDING_CONFIG } from '../config/weddingConfig';
 
@@ -104,12 +105,8 @@ export const DramaticTimer: React.FC<Props> = ({
         {labels.title}
       </h2>
 
-      {/* Heart Divider: — ♥ — */}
-      <div className="flex items-center justify-center gap-3 w-48 my-1 opacity-60">
-        <div className="h-px w-full bg-[#A87964]" />
-        <span className="text-[#A87964] text-xs">♥</span>
-        <div className="h-px w-full bg-[#A87964]" />
-      </div>
+      {/* Heart Divider: — ♥ — (Center-Out Expansion) */}
+      <ExpandingDivider color="#A87964" width="w-48" className="my-1" opacity={0.6} />
 
       {/* Subtitle */}
       <p 
