@@ -211,7 +211,7 @@ export const EventsSection: React.FC<Props> = ({ lang }) => {
 
           {/* Faded Arched Background Photograph with Optical Depth Parallax */}
           <ParallaxArch 
-            src="/assets/event-haldi.jpg" 
+            src="/assets/event-haldi.webp" 
             alt="Haldi Ritual" 
             height={230} 
           />
@@ -298,7 +298,7 @@ export const EventsSection: React.FC<Props> = ({ lang }) => {
 
           {/* Faded Arched Background Photograph with Optical Depth Parallax */}
           <ParallaxArch 
-            src="/assets/event-mehendi.jpg" 
+            src="/assets/event-mehendi.webp" 
             alt="Mehendi & Sangeet" 
             height={220} 
           />
@@ -385,7 +385,7 @@ export const EventsSection: React.FC<Props> = ({ lang }) => {
 
           {/* Faded Arched Background Photograph with Optical Depth Parallax */}
           <ParallaxArch 
-            src="/assets/event-vivah.jpg" 
+            src="/assets/event-vivah.webp" 
             alt="Sacred Vivah" 
             height={230} 
           />
@@ -405,10 +405,10 @@ export const EventsSection: React.FC<Props> = ({ lang }) => {
               {lang === 'en' ? 'Wednesday · Baraat Swagat: 07:00 PM' : 'दिन बुधवार · शुभ बारात आगमन: सायं 07:00 बजे'}
             </motion.span>
             <motion.span variants={itemVariants} className="b-font" style={{ fontSize: '16px', color: '#FFF3DC' }}>
-              {lang === 'en' ? 'Varmala Ceremony: 08:30 PM' : 'जयमाला रस्म: रात्रि 08:30 बजे'}
+              {lang === 'en' ? 'Varmala Ceremony: 11:00 PM' : 'जयमाला रस्म: रात्रि 11:00 बजे'}
             </motion.span>
             <motion.span variants={itemVariants} className="b-font" style={{ fontSize: '16px', color: '#FFF3DC' }}>
-              {lang === 'en' ? 'Seven Sacred Pheras: 11:00 PM' : 'पाणिग्रहण (फेरे): रात्रि 11:00 बजे (शुभ लग्न)'}
+              {lang === 'en' ? 'Seven Sacred Pheras (Vivah): 03:00 AM (26 Nov)' : 'शुभ विवाह एवं पाणिग्रहण (फेरे): प्रातः 03:00 बजे (शुभ लग्न)'}
             </motion.span>
             <motion.span variants={itemVariants} className="b-font" style={{ fontSize: '16px', color: '#FFF3DC' }}>
               {lang === 'en' ? 'Dinner & Blessings to follow' : 'प्रीतिभोज एवं शुभाशीर्वाद'}
@@ -470,27 +470,114 @@ export const EventsSection: React.FC<Props> = ({ lang }) => {
 
           {/* Faded Arched Background Photograph with Optical Depth Parallax */}
           <ParallaxArch 
-            src="/assets/event-vidaai.jpg" 
+            src="/assets/event-vidaai.webp" 
             alt="Vidaai Doli" 
             height={210} 
           />
 
           {/* Direct Text */}
           <span className="b-font" style={{ fontSize: '16px', color: '#F5F3FF', marginTop: '4px' }}>
-            {lang === 'en' ? 'Thursday, 26 November 2026 · 05:00 AM' : '26 नवम्बर 2026 · दिन गुरूवार · प्रातः 05:00 बजे'}
+            {lang === 'en' ? 'Thursday, 26 November 2026 · 08:00 AM' : '26 नवम्बर 2026 · दिन गुरूवार · प्रातः 08:00 बजे'}
           </span>
 
           <div className="my-1" />
 
-          <h3 className="d-font" style={{ fontSize: '28px', lineHeight: '1.2', color: '#E5C158', margin: 0 }}>
+          <span className="b-font" style={{ fontSize: '15px', color: '#C4B5FD', fontWeight: 600 }}>
+            {lang === 'en' ? 'Dress code: Graceful Traditional Attire' : 'पहनावा: सुरुचिपूर्ण पारंपरिक परिधान'}
+          </span>
+
+        </div>
+      </section>
+
+      {/* =========================================================================
+          6. GRAND RECEPTION (Celebratory Imperial Velvet Wine / Festive Gala)
+          - Venue: Manda Yadava Reddy Gardens, Champapet Hyderabad
+          - Date: 2 December 2026 · 7:00 PM onwards
+          - Vibrant party, music, dining, and celebration color palette
+          - Continuous gradient from #0B0813 midnight base with zero seams
+          ========================================================================= */}
+      <section 
+        className="sec-clean" 
+        style={{ 
+          minHeight: '860px', 
+          padding: '40px 24px 90px', 
+          background: 'linear-gradient(180deg, #0B0813 0%, #1A0924 18%, #360E36 42%, #520F3E 65%, #2B072B 85%, #0F0314 100%)', 
+          color: '#FFECC8' 
+        }}
+      >
+        <div className="sec-content" style={{ gap: '14px' }}>
+          
+          <span 
+            className="b-font" 
+            style={{ fontSize: '13px', letterSpacing: '.28em', textTransform: 'uppercase', color: '#FBCFE8', fontWeight: 600 }}
+          >
+            {lang === 'en' ? 'The Celebration' : 'शुभ स्वागत समारोह'}
+          </span>
+
+          <AnimatedTitle 
+            className="d-font text-center" 
+            style={{ fontSize: lang === 'en' ? '52px' : '42px', lineHeight: '1.05', color: '#FCD34D', margin: 0 }}
+          >
+            {lang === 'en' ? 'Grand Reception' : 'प्रीतिभोज एवं स्वागत समारोह'}
+          </AnimatedTitle>
+
+          <p 
+            className="d-italic" 
+            style={{ fontSize: '20px', margin: 0, color: '#FDE68A' }}
+          >
+            {lang === 'en' ? 'An evening of celebration, dining, and joyous melodies' : 'स्नेह मिलन, मंगल प्रीतिभोज एवं संगीतमय शाम'}
+          </p>
+
+          {/* Faded Arched Background Photograph with Optical Depth Parallax */}
+          <ParallaxArch 
+            src="/assets/event-reception.webp" 
+            alt="Reception Banquet & Gala" 
+            height={230} 
+          />
+
+          {/* Direct Text (Sequential Ceremonial Cascade) */}
+          <motion.div 
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.22 }}
+            variants={containerVariants}
+            className="flex flex-col items-center gap-2 text-center mt-2 w-full max-w-[340px]"
+          >
+            <motion.strong variants={itemVariants} className="d-font" style={{ fontSize: '36px', color: '#FCD34D', lineHeight: 1.1 }}>
+              {lang === 'en' ? '02 December 2026' : '02 दिसम्बर 2026'}
+            </motion.strong>
+            <motion.span variants={itemVariants} className="b-font" style={{ fontSize: '16px', color: '#FFECC8', fontWeight: 500 }}>
+              {lang === 'en' ? 'Wednesday · Evening 07:00 PM onwards' : 'दिन बुधवार · सायं 07:00 बजे से'}
+            </motion.span>
+            <motion.span variants={itemVariants} className="b-font" style={{ fontSize: '16px', color: '#FFECC8', fontWeight: 500 }}>
+              {lang === 'en' ? 'Festive Banquet, Music & Dinner' : 'मंगल प्रीतिभोज, संगीत एवं शुभाशीर्वाद'}
+            </motion.span>
+
+            <div className="my-1" />
+
+            <motion.span variants={itemVariants} className="b-font" style={{ fontSize: '16px', color: '#FFECC8', fontWeight: 500 }}>
+              {lang === 'en' ? 'Manda Yadava Reddy Gardens, Champapet, Hyderabad' : 'मंदा यादवा रेड्डी गार्डन्स, चम्पापेट, हैदराबाद'}
+            </motion.span>
+
+            <div className="my-1" />
+
+            <motion.span variants={itemVariants} className="b-font" style={{ fontSize: '15px', color: '#FCD34D', fontWeight: 600 }}>
+              {lang === 'en' ? 'Dress code: Festive Glam & Royal Splendour' : 'पहनावा: सुरुचिपूर्ण उत्सवी एवं भव्य'}
+            </motion.span>
+          </motion.div>
+
+          <div className="my-2" />
+
+          {/* Final Celebration Invitation & Warm Sign-off */}
+          <h3 className="d-font" style={{ fontSize: '28px', lineHeight: '1.2', color: '#FCD34D', margin: 0 }}>
             {lang === 'en' ? 'Your entire family is invited' : 'आप सपरिवार सादर आमंत्रित हैं'}
           </h3>
-          <p className="b-font" style={{ margin: 0, fontSize: '15px', lineHeight: '1.6', maxWidth: '320px', color: '#DDD6FE' }}>
+          <p className="b-font" style={{ margin: 0, fontSize: '15px', lineHeight: '1.6', maxWidth: '320px', color: '#FFECC8' }}>
             {lang === 'en' 
               ? 'Please join our celebrations and shower your heartfelt blessings upon us.' 
               : 'कृपया पधारकर वर-वधू को अपने स्नेहिल आशीर्वाद से अनुगृहीत करें।'}
           </p>
-          <span className="b-font" style={{ fontSize: '15px', letterSpacing: '.14em', textTransform: 'uppercase', color: '#E5C158', marginTop: '6px' }}>
+          <span className="b-font" style={{ fontSize: '15px', letterSpacing: '.14em', textTransform: 'uppercase', color: '#FCD34D', marginTop: '6px' }}>
             {lang === 'en' ? 'With love, Ragani & Pranay' : 'स्नेही: रागनी एवं प्रणय'}
           </span>
 

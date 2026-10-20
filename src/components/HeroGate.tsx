@@ -92,7 +92,7 @@ export const HeroGate: React.FC<Props> = ({ onVideoStart, onUnlocked, lang }) =>
             className="absolute inset-0 z-10 w-full h-full overflow-hidden"
           >
             <img
-              src="/assets/hero-card-cover.png"
+              src="/assets/hero-card-cover.webp"
               alt="Wedding Invitation Cover"
               className="absolute -top-1 left-0 w-full h-[114%] object-cover object-top pointer-events-none"
             />
